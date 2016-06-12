@@ -1,0 +1,72 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+    .panel-group .panel {
+        overflow: visible;
+    }
+
+.accordion-toggle {text-decoration: none !important}
+
+table, td {
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+table {
+    border: 1px solid gray;
+}
+
+tr:nth-of-type(even) {
+    background-color: #E0F0FF;
+}
+
+
+.service-name-column {
+    white-space: nowrap;
+}
+
+.status-column {
+    text-align: left;
+    margin-right: 25px;
+    min-width: 120px;
+    width: 25%;
+}
+
+.status-indicator {
+    width: 80%;
+    text-align: right;
+}
+
+.status-running, .status-stopped, .status-semi-valid, .status-invalid {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.status-running {
+    color: green;
+}
+
+.status-stopped {
+    color: red;
+}
+
+.status-semi-valid {
+    color: orange;
+}
+
+.status-invalid {
+    font-size: 120%;
+    font-weight: bold;
+    color: orangered;
+}
+
+
+/*
+.pull-right {
+    padding-right:10px;
+}
+*/
+
+/*
+.btn-group {
+    container: 'body';
+}
+*/

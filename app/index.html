@@ -1,0 +1,16 @@
+<!-- index.html -->
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ssMock</title>
+        <script data-main="main.js" src="assets/lib/requireJS-2.2.0/require.js"> </script>
+        <link href="assets/css/ssMock.css" rel="stylesheet" />
+    </head>
+    <body onload="init()" ng-controller="indexController" ng-init="initializeController()" ng-cloak>
+
+        <!-- ng-view directive to tell AngularJS where to put the content pages-->
+        <div style="margin: 75px 50px 50px 50px" ng-view> </div>
+    </body>
+</html>
