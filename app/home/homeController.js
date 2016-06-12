@@ -1,9 +1,8 @@
 var app = angular.module('ssMock', ['ui.bootstrap','ngAnimate']);
 
 app.controller('homeController', ['$scope', 'homeService' ,function ($scope, model) {
-//function homeController($scope, model) {
 
-  function addStatusAnnotations(obj) {
+    var addStatusAnnotations = function (obj) {
       switch (obj.status) {
           case 'Stopped':
               obj.symbol = '\u2B24';
@@ -22,24 +21,28 @@ app.controller('homeController', ['$scope', 'homeService' ,function ($scope, mod
           default:
               obj.symbol = '\u26A0';
               obj.cssClass = 'status-invalid';
-      }
-  }
+        }
+        return obj;
+    };
 
-  var init = function () {
+    var init = function () {
 
-      var servers = model.GetServers();
+          var servers = model.GetServers();
 
-      servers.forEach(function(server) {
-          addStatusAnnotations(server);
-          server.serviceGroups.forEach(function(group) {
-              addStatusAnnotations(group);
-              group.services.forEach(function(service) {
-                  addStatusAnnotations(service);
+          servers.forEach(function(server) {
+
+              addStatusAnnotations(server);
+              server.serviceGroups.forEach(function(group) {
+                  addStatusAnnotations(group);
+                  group.services.forEach(function(service) {
+                      addStatusAnnotations(service);
+                  });
               });
           });
-      });
-      $scope.serverGroups = servers;
-  };
 
-  init();
+          $scope.addAnnotations = addStatusAnnotations;
+          $scope.serverGroups = servers;
+    };
+
+    init();
 }]);

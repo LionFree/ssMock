@@ -2,7 +2,7 @@
  * Created by CKR1 on 6/12/2016.
  */
 
-describe("home controller", function() {
+describe("Home Controller", function() {
 
     var scope, createController;
 
@@ -23,4 +23,14 @@ describe("home controller", function() {
         expect(scope.serverGroups).toBeDefined();
     });
 
+    it("should return correct annotations for 'Stopped' state", function () {
+        var controller = createController();
+        var item = {
+            status: 'Stopped'
+        };
+
+        var actual = scope.addAnnotations(item);
+
+        expect(actual).toBeDefined();
+    });
 });
