@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                 browsers: ['Chrome'],
                 preprocessors: {
                     '**/*.html': 'ng-html2js',
-                    'app/assets/javascripts/**/!(*Module).js': 'coverage'
+                    'app/assets/js/**/!(*Module).js': 'coverage'
                 }
             },
 
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
                 browsers: ['Chrome'],
                 preprocessors: {
                     '**/*.html': 'ng-html2js',
-                    'grails-app/assets/javascripts/**/!(*Module).js': 'coverage'
+                    'app/assets/js/**/!(*Module).js': 'coverage'
                 },
                 reporters: ['dots', 'coverage']
             }
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
         todo: {
             options: {},
             src: [
-                'grails-app/assets/javascripts/**/*.js',
+                'grails-app/assets/js/**/*.js',
                 'test/javascript/unit/specs/**/*.js'
             ],
         },
@@ -114,30 +114,28 @@ module.exports = function(grunt) {
         var files = [];
         files.push(
             'app/assets/lib/angular-1.5.6/angular.js',
-            'app/assets/lib/angular-1.5.6/angular-mocks.js',
             'app/assets/lib/angular-1.5.6/angular-animate.js',
-            'app/assets/lib/angular-1.5.6/angular-route.js'
-        );
+            'app/assets/lib/angular-1.5.6/angular-route.js',
+            'app/assets/lib/angular-ui/ui-bootstrap-1.3.3.js',
+            'test/lib/angular/angular-mocks.js'
+    );
 
         if (useDirectives) {
             // use sprockets chain to add files based on the asset pipeline directives
             var sc = new Chain();
-            // sc.appendPath('test/javascript/unit/stubs');
             sc.appendPath('app/home');
             files = files.concat(sc.depChain('homeService.js').slice(0, -1));  // the slice is there to remove the last element, which is homeService.js itself
             files = files.concat(sc.depChain('homeController.js').slice(0, -1));  // the slice is there to remove the last element, which is homeController.js itself
         }
         else {
             files.push(
-                // 'app/assets/js/**/*Module.js',
-                // 'app/assets/js/**/*.js',
-                // 'app/assets/js/**/templates/*.html'
+                'app/assets/js/**/*.js',
+                'app/home/*.js'
             );
         }
 
         // add specs
         files.push(
-            'test/javascript/unit/stubs/shared/**/*.js',
             'test/javascript/unit/specs/**/*.js'
         );
         return files;

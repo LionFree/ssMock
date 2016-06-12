@@ -1,3 +1,5 @@
+var app = angular.module('ssMock', ['ui.bootstrap','ngAnimate']);
+
 app.controller('homeController', ['$scope', 'homeService' ,function ($scope, model) {
 
   "use strict";
@@ -27,7 +29,7 @@ app.controller('homeController', ['$scope', 'homeService' ,function ($scope, mod
   var init = function () {
 
       var servers = model.GetServers();
-      
+
       servers.forEach(function(server) {
           addStatusAnnotations(server);
           server.serviceGroups.forEach(function(group) {

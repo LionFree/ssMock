@@ -28,7 +28,7 @@ module.exports = function(config) {
                 // remove path, so that cacheId is only the file name
                 //cacheId = cacheId.substr(cacheId.lastIndexOf('/')+1);
                 // match namespace used in directives
-                cacheId = cacheId.replace(/(templates\/|grails-app\/assets\/javascript)/g, '');
+                cacheId = cacheId.replace(/(templates\/|app\/assets\/js)/g, '');
                 // remove the "tpl" from the file name
                 cacheId = cacheId.replace('tpl.html', 'html');
                 return cacheId;
