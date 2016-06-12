@@ -115,7 +115,6 @@ module.exports = function(grunt) {
         files.push(
             'app/assets/lib/angular-1.5.6/angular.js',
             'app/assets/lib/angular-1.5.6/angular-animate.js',
-            'app/assets/lib/angular-1.5.6/angular-route.js',
             'app/assets/lib/angular-ui/ui-bootstrap-1.3.3.js',
             'test/lib/angular/angular-mocks.js'
     );
@@ -129,7 +128,7 @@ module.exports = function(grunt) {
         }
         else {
             files.push(
-                'app/assets/js/**/*.js',
+                //'app/assets/js/**/*.js',
                 'app/home/*.js'
             );
         }

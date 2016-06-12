@@ -2,24 +2,25 @@
  * Created by CKR1 on 6/12/2016.
  */
 
-describe('homeController', function() {
+describe("home controller", function() {
 
-    describe('sut', function () {
+    var scope, createController;
 
-        beforeEach(module('ssMock'));
+    beforeEach(module('ssMock'));
 
-        var controller, scope;
-
-        beforeEach(inject(function ($rootScope, $controller) {
-            scope = $rootScope.$new();
-            controller = $controller('homeController', {
+    beforeEach(inject(function ($rootScope, $controller) {
+        scope = $rootScope.$new();
+        createController = function() {
+            return $controller('homeController', {
                 '$scope': scope
             });
-        }));
+        };
 
-        it('sets the serverGroups', function () {
-            expect(scope.serverGroups).toBeDefined();
-        });
+    }));
+
+    it('should set the serverGroups', function () {
+        var controller = createController();
+        expect(scope.serverGroups).toBeDefined();
     });
 
 });

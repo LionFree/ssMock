@@ -1,8 +1,7 @@
 var app = angular.module('ssMock', ['ui.bootstrap','ngAnimate']);
 
 app.controller('homeController', ['$scope', 'homeService' ,function ($scope, model) {
-
-  "use strict";
+//function homeController($scope, model) {
 
   function addStatusAnnotations(obj) {
       switch (obj.status) {
@@ -43,5 +42,4 @@ app.controller('homeController', ['$scope', 'homeService' ,function ($scope, mod
   };
 
   init();
-
 }]);

@@ -1,5 +1,3 @@
-var app = angular.module('ssMock', ['ui.bootstrap','ngAnimate']);
-
 app.service('homeService', [function () {
     
   "use strict";
