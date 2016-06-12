@@ -14,7 +14,7 @@ app.service('homeService', [function () {
             services: [
               {
                 status: 'Running',
-                serviceName: 'Pipeline Pilot'
+                title: 'Pipeline Pilot'
               }
             ],
             status: 'Running',
@@ -24,7 +24,7 @@ app.service('homeService', [function () {
             services: [
               {
                 status: 'Not Installed',
-                serviceName: 'Foundation Hub'
+                title: 'Foundation Hub'
               }
             ],
             status: 'Not Installed',
@@ -34,19 +34,19 @@ app.service('homeService', [function () {
             services: [
               {
                 status: 'Running',
-                serviceName: 'Vault Message Processor'
+                title: 'Vault Message Processor'
               },
               {
                 status: 'Running',
-                serviceName: 'IIS'
+                title: 'IIS'
               },
               {
                 status: 'Stopped',
-                serviceName: 'Vault Private Service'
+                title: 'Vault Private Service'
               },
               {
                 status: 'Running',
-                serviceName: 'Vault Workflow Service'
+                title: 'Vault Workflow Service'
               }
             ],
             status: 'Partial',
@@ -56,7 +56,7 @@ app.service('homeService', [function () {
             services: [
               {
                 status: 'Running',
-                serviceName: 'Compose'
+                title: 'Compose'
               }
             ],
             status: 'Running',

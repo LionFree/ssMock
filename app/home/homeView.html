@@ -53,7 +53,8 @@
             <uib-accordion-group ng-repeat="group in server.serviceGroups" is-open="isServerOpen">
               <uib-accordion-heading ng-click="isServerOpen = !isServerOpen">
                 <div>
-                    <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isServerOpen, 'glyphicon-chevron-right': !isServerOpen}" style="margin-right:15px"></i>{{group.title}} 
+                    <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isServerOpen, 'glyphicon-chevron-right': !isServerOpen}" style="margin-right:15px"></i>
+                    {{group.title}}
                     <div class="pull-right status-column" style="margin-right:20px">
                       <span ng-class="group.cssClass">{{group.symbol}}</span>
                         {{group.status}}
@@ -64,7 +65,7 @@
               <!-- Services -->
               <table>
                 <tr ng-repeat="service in group.services">
-                  <td class="service-name-column">{{ service.serviceName }}</td>  
+                  <td class="service-name-column">{{ service.title }}</td>
                   <td class="status-indicator">
                       <span ng-class="service.cssClass">{{service.symbol}}</span>
                   </td>
