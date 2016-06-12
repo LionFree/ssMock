@@ -114,6 +114,7 @@ module.exports = function(grunt) {
         var files = [];
         files.push(
             'app/assets/lib/angular-1.5.6/angular.js',
+            'app/assets/lib/angular-1.5.6/angular-mocks.js',
             'app/assets/lib/angular-1.5.6/angular-animate.js',
             'app/assets/lib/angular-1.5.6/angular-route.js'
         );
