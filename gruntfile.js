@@ -122,14 +122,18 @@ module.exports = function(grunt) {
         if (useDirectives) {
             // use sprockets chain to add files based on the asset pipeline directives
             var sc = new Chain();
+            sc.appendPath('app');
+            files = files.concat(sc.depChain('app.js').slice(0, -1));  // the slice is there to remove the last element, which is homeService.js itself
             sc.appendPath('app/home');
+            files = files.concat(sc.depChain('statusAnnotationService.js').slice(0, -1));  // the slice is there to remove the last element, which is homeService.js itself
             files = files.concat(sc.depChain('homeService.js').slice(0, -1));  // the slice is there to remove the last element, which is homeService.js itself
             files = files.concat(sc.depChain('homeController.js').slice(0, -1));  // the slice is there to remove the last element, which is homeController.js itself
         }
         else {
             files.push(
-                //'app/assets/js/**/*.js',
+                'app/*.js',
                 'app/home/*.js'
+                //'app/assets/js/**/*.js',
             );
         }
 
