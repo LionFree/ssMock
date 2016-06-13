@@ -1,12 +1,11 @@
 
 describe("statusAnnotationService", function() {
 
-    var statusAnnotationService;
+    var sut;
 
     beforeEach(module('ssMock'));
-
     beforeEach(inject(function (_statusAnnotationService_) {
-        statusAnnotationService = _statusAnnotationService_;
+        sut = _statusAnnotationService_;
     }));
 
     it("should return correct annotations for 'Stopped' state", function () {
@@ -15,7 +14,7 @@ describe("statusAnnotationService", function() {
             status: 'Stopped'
         };
 
-        var actual = statusAnnotationService(item);
+        var actual = sut.annotate(item);
 
         expect(actual).toBeDefined();
         expect(actual.symbol).toBe('\u2B24');
@@ -28,7 +27,7 @@ describe("statusAnnotationService", function() {
             status: 'Running'
         };
 
-        var actual = statusAnnotationService(item);
+        var actual = sut.annotate(item);
 
         expect(actual).toBeDefined();
         expect(actual.symbol).toBe('\u2B24');
@@ -41,7 +40,7 @@ describe("statusAnnotationService", function() {
             status: 'Partial'
         };
 
-        var actual = statusAnnotationService(item);
+        var actual = sut.annotate(item);
 
         expect(actual).toBeDefined();
         expect(actual.symbol).toBe('\u2B24');
@@ -54,7 +53,7 @@ describe("statusAnnotationService", function() {
             status: 'Error'
         };
 
-        var actual = statusAnnotationService(item);
+        var actual = sut.annotate(item);
 
         expect(actual).toBeDefined();
         expect(actual.symbol).toBe('\u26A0');
@@ -67,7 +66,7 @@ describe("statusAnnotationService", function() {
             status: 'Not Installed'
         };
 
-        var actual = statusAnnotationService(item);
+        var actual = sut.annotate(item);
 
         expect(actual).toBeDefined();
         expect(actual.symbol).toBe('\u26A0');
@@ -80,7 +79,7 @@ describe("statusAnnotationService", function() {
             status: ''
         };
 
-        var actual = statusAnnotationService(item);
+        var actual = sut.annotate(item);
 
         expect(actual).toBeDefined();
         expect(actual.symbol).toBe('\u26A0');
@@ -93,7 +92,7 @@ describe("statusAnnotationService", function() {
             title: 'no status'
         };
 
-        var actual = statusAnnotationService(item);
+        var actual = sut.annotate(item);
 
         expect(actual).toBeDefined();
         expect(actual.symbol).toBe('\u26A0');
