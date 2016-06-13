@@ -1,12 +1,6 @@
 (function () {
     angular.module('ssMock')
-        .controller('homeController', ['$scope', 'homeService', 'statusAnnotationService', function ($scope, model, annotationService) {
-
-    var annotateStatus = function (obj) {
-        return annotationService(obj);
-    };
-
-    var init = function () {
+        .controller('homeController', ['$scope', 'homeService', 'statusAnnotationService', function ($scope, model, annotateStatus) {
 
           var servers = model.GetServers();
 
@@ -22,8 +16,5 @@
           });
 
           $scope.serverGroups = servers;
-    };
-
-    init();
 }])
 })();
