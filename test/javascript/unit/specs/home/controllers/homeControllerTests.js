@@ -1,20 +1,18 @@
 
 describe("Home Controller", function() {
 
-    var scope, createController;
+    var createController;
 
     beforeEach(module('ssMock'));
-    beforeEach(inject(function ($rootScope, $controller) {
-        scope = $rootScope.$new();
+    beforeEach(inject(function ($controller) {
         createController = function() {
-            return $controller('homeController', {
-                '$scope': scope
-            });
+            return $controller('HomeController');
         };
+
     }));
 
     it('should set the serverGroups', function () {
-        createController();
-        expect(scope.serverGroups).toBeDefined();
+        var sut = createController();
+        expect(sut.serverGroups).toBeDefined();
     });
 });
