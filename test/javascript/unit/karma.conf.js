@@ -16,7 +16,20 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             // files are specified in Gruntfile.js
+
+            // nah, j/k, here they are:
+            'app/assets/lib/angular-1.5.6/angular.js',
+            'app/assets/lib/angular-1.5.6/angular-animate.js',
+            'app/assets/lib/angular-ui/ui-bootstrap-1.3.3.js',
+            'test/lib/angular/angular-mocks.js',
+
+            'app/*.js',
+            'app/home/*.js',
+
+            'test/javascript/unit/specs/**/*.js'
         ],
+
+
 
         // list of files to exclude
         exclude: [
