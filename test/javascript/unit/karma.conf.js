@@ -54,7 +54,9 @@ module.exports = function(config) {
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             // generate js files from html templates
-            '**/*.html': 'ng-html2js'
+            '**/*.html': 'ng-html2js',
+            'app/*.js': ['coverage'],
+            'app/home/*.js': ['coverage']
         },
 
 
@@ -64,10 +66,12 @@ module.exports = function(config) {
         reporters: ['progress', 'junit', 'coverage'],
 
         junitReporter: {
+            outputDir: 'test/execution',
             outputFile: 'test-results.xml'
         },
 
         coverageReporter: {
+            dir: 'test/execution/coverage',
             subdir: function(browser){
                 // normalization process to keep a consistent browser name across different
                 // OS
