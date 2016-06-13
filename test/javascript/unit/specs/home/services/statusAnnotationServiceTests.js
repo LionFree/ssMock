@@ -14,11 +14,11 @@ describe("statusAnnotationService", function() {
             status: 'Stopped'
         };
 
-        var actual = sut.annotate(item);
+        sut.annotate(item);
 
-        expect(actual).toBeDefined();
-        expect(actual.symbol).toBe('\u2B24');
-        expect(actual.cssClass).toBe('status-stopped');
+        expect(item).toBeDefined();
+        expect(item.symbol).toBe('\u2B24');
+        expect(item.cssClass).toBe('status-stopped');
     });
 
     it("should return correct annotations for 'Running' state", function () {
@@ -27,11 +27,11 @@ describe("statusAnnotationService", function() {
             status: 'Running'
         };
 
-        var actual = sut.annotate(item);
+        sut.annotate(item);
 
-        expect(actual).toBeDefined();
-        expect(actual.symbol).toBe('\u2B24');
-        expect(actual.cssClass).toBe('status-running');
+        expect(item).toBeDefined();
+        expect(item.symbol).toBe('\u2B24');
+        expect(item.cssClass).toBe('status-running');
     });
 
     it("should return correct annotations for 'Partial' state", function () {
@@ -40,11 +40,11 @@ describe("statusAnnotationService", function() {
             status: 'Partial'
         };
 
-        var actual = sut.annotate(item);
+        sut.annotate(item);
 
-        expect(actual).toBeDefined();
-        expect(actual.symbol).toBe('\u2B24');
-        expect(actual.cssClass).toBe('status-semi-valid');
+        expect(item).toBeDefined();
+        expect(item.symbol).toBe('\u2B24');
+        expect(item.cssClass).toBe('status-semi-valid');
     });
 
     it("should return correct annotations for 'Error' state", function () {
@@ -53,11 +53,11 @@ describe("statusAnnotationService", function() {
             status: 'Error'
         };
 
-        var actual = sut.annotate(item);
+        sut.annotate(item);
 
-        expect(actual).toBeDefined();
-        expect(actual.symbol).toBe('\u26A0');
-        expect(actual.cssClass).toBe('status-invalid');
+        expect(item).toBeDefined();
+        expect(item.symbol).toBe('\u26A0');
+        expect(item.cssClass).toBe('status-invalid');
     });
 
     it("should return correct annotations for 'Not Installed' state", function () {
@@ -66,11 +66,11 @@ describe("statusAnnotationService", function() {
             status: 'Not Installed'
         };
 
-        var actual = sut.annotate(item);
+        sut.annotate(item);
 
-        expect(actual).toBeDefined();
-        expect(actual.symbol).toBe('\u26A0');
-        expect(actual.cssClass).toBe('status-invalid');
+        expect(item).toBeDefined();
+        expect(item.symbol).toBe('\u26A0');
+        expect(item.cssClass).toBe('status-invalid');
     });
 
     it("should return correct annotations for '' state", function () {
@@ -79,11 +79,11 @@ describe("statusAnnotationService", function() {
             status: ''
         };
 
-        var actual = sut.annotate(item);
+        sut.annotate(item);
 
-        expect(actual).toBeDefined();
-        expect(actual.symbol).toBe('\u26A0');
-        expect(actual.cssClass).toBe('status-invalid');
+        expect(item).toBeDefined();
+        expect(item.symbol).toBe('\u26A0');
+        expect(item.cssClass).toBe('status-invalid');
     });
 
     it("should return correct annotations for no state", function () {
@@ -92,10 +92,10 @@ describe("statusAnnotationService", function() {
             title: 'no status'
         };
 
-        var actual = sut.annotate(item);
+        sut.annotate(item);
 
-        expect(actual).toBeDefined();
-        expect(actual.symbol).toBe('\u26A0');
-        expect(actual.cssClass).toBe('status-invalid');
+        expect(item).toBeDefined();
+        expect(item.symbol).toBe('\u26A0');
+        expect(item.cssClass).toBe('status-invalid');
     });
 });

@@ -12,7 +12,6 @@
         };
 
         function annotateService(obj) {
-
             switch (obj.status) {
                 case 'Stopped':
                     obj.symbol = '\u2B24';
@@ -32,7 +31,6 @@
                     obj.symbol = '\u26A0';
                     obj.cssClass = 'status-invalid';
             }
-            return obj;
         }
     }
 })();
