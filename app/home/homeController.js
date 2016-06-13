@@ -1,28 +1,9 @@
-var app = angular.module('ssMock', ['ui.bootstrap','ngAnimate']);
+(function () {
+    angular.module('ssMock')
+        .controller('homeController', ['$scope', 'homeService', 'statusAnnotationService', function ($scope, model, annotationService) {
 
-app.controller('homeController', ['$scope', 'homeService' ,function ($scope, model) {
-
-    var addStatusAnnotations = function (obj) {
-      switch (obj.status) {
-          case 'Stopped':
-              obj.symbol = '\u2B24';
-              obj.cssClass = 'status-stopped';
-              break;
-          case 'Running':
-              obj.symbol = '\u2B24';
-              obj.cssClass = 'status-running';
-              break;
-          case 'Partial':
-              obj.symbol = '\u2B24';
-              obj.cssClass = 'status-semi-valid';
-              break;
-          case 'Error':
-          case 'Not Installed':
-          default:
-              obj.symbol = '\u26A0';
-              obj.cssClass = 'status-invalid';
-        }
-        return obj;
+    var annotateStatus = function (obj) {
+        return annotationService(obj);
     };
 
     var init = function () {
@@ -31,18 +12,18 @@ app.controller('homeController', ['$scope', 'homeService' ,function ($scope, mod
 
           servers.forEach(function(server) {
 
-              addStatusAnnotations(server);
+              annotateStatus(server);
               server.serviceGroups.forEach(function(group) {
-                  addStatusAnnotations(group);
+                  annotateStatus(group);
                   group.services.forEach(function(service) {
-                      addStatusAnnotations(service);
+                      annotateStatus(service);
                   });
               });
           });
 
-          $scope.addAnnotations = addStatusAnnotations;
           $scope.serverGroups = servers;
     };
 
     init();
-}]);
+}])
+})();
