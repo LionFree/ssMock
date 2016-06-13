@@ -3,7 +3,7 @@
 
     angular
         .module('ssMock')
-        .service('homeService', homeService);
+        .factory('homeService', homeService);
 
     function homeService() {
 

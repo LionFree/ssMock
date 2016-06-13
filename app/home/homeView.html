@@ -18,7 +18,7 @@
   </head>
 
   <body>
-    <div ng-controller="homeController" style="margin-top:50px; margin-left:30px; margin-right:30px">
+    <div ng-controller="HomeController as viewModel" style="margin-top:50px; margin-left:30px; margin-right:30px" ng-cloak>
       <script type="text/ng-template" id="group-template.html">
         <div class="panel {{panelClass || 'panel-default'}}">
           <div class="panel-heading">
@@ -39,7 +39,7 @@
       <uib-accordion close-others="oneAtATime">
 
         <!-- Servers -->
-        <uib-accordion-group ng-repeat="server in serverGroups" is-open="isopen">
+        <uib-accordion-group ng-repeat="server in viewModel.serverGroups" is-open="isopen">
             <uib-accordion-heading ng-click="isopen = !isopen">
               <div>
                   <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}" style="margin-right:15px"></i>

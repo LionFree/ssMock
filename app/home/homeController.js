@@ -1,21 +1,26 @@
 (function () {
+    'use strict';
+
     angular
         .module('ssMock')
-        .controller('homeController', ['$scope', 'homeService', 'statusAnnotationService', function ($scope, model, statusAnnotationService) {
+        .controller('HomeController', ['homeService', 'statusAnnotationService', HomeController]);
 
-          var servers = model.GetServers();
+    function HomeController(model, statusAnnotationService) {
+            var vm = {};
+            var servers = model.GetServers();
 
-          servers.forEach(function(server) {
+              servers.forEach(function(server) {
 
-              statusAnnotationService.annotate(server);
-              server.serviceGroups.forEach(function(group) {
-                  statusAnnotationService.annotate(group);
-                  group.services.forEach(function(service) {
-                      statusAnnotationService.annotate(service);
+                  statusAnnotationService.annotate(server);
+                  server.serviceGroups.forEach(function(group) {
+                      statusAnnotationService.annotate(group);
+                      group.services.forEach(function(service) {
+                          statusAnnotationService.annotate(service);
+                      });
                   });
               });
-          });
 
-          $scope.serverGroups = servers;
-}])
+            vm.serverGroups = servers;
+            return vm;
+        }
 })();
