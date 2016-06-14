@@ -106,7 +106,7 @@ module.exports = function(config) {
         // - PhantomJS
         // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome','IE','Firefox'],
+        browsers: ['Chrome','IE','Firefox', 'PhantomJS'],
 
 
         // If browser does not capture in given timeout [ms], kill it

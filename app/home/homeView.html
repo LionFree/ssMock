@@ -11,9 +11,8 @@
       <script src="../app.js"></script>
 
       <script src="directives/ssStatusGroup.js"></script>
-      <script src="directives/ssMember.js"></script>
       <script src="directives/ssStatus.js"></script>
-      <script src="directives/ssServiceStatusView.js"></script>
+      <script src="directives/ssServiceTable.js"></script>
       <script src="statusAnnotationService.js"></script>
       <script src="homeService.js"></script>
       <script src="homeController.js"></script>
@@ -29,7 +28,7 @@
           <div class="panel-heading">
             <h4 class="panel-title" style="color:#fa39c3">
               <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" accordion-transclude="heading">
-                <span accordion-header ng-class="{'text-muted': isDisabled}">
+                <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
                   {{heading}}
                 </span>
               </a>
@@ -40,6 +39,15 @@
           </div>
         </div>
       </script>
+
+        <!--<ss-status-group collection="viewModel.servers" is-open="isServerOpen">-->
+            <!--<ss-status-group collection="item.group" is-open="isServerOpen">-->
+                <!--o:{{$id}}-->
+                <!--<ss-service-table service-group="group"></ss-service-table>-->
+            <!--</ss-status-group>-->
+        <!--</ss-status-group>-->
+
+
 
             <uib-accordion close-others="oneAtATime">
                 <uib-accordion-group ng-repeat="server in viewModel.servers" is-open="isServerOpen">
@@ -55,9 +63,9 @@
                         </uib-accordion-group>
                       </uib-accordion>
 
-                </ss-status>
-            </uib-accordion-group>
-        </uib-accordion>
+                    </ss-status>
+                </uib-accordion-group>
+            </uib-accordion>
 
     </div>
   </body>

@@ -5,6 +5,7 @@
         .module('ssMock')
         .directive('ssStatusGroup', [
             function() {
+
                 return {
                     restrict: 'E',
                     scope: {
@@ -13,7 +14,7 @@
                     },
                     templateUrl: 'directives/ssStatusGroup.html',
                     transclude: true
-                }
+                };
             }
         ]);
 })();

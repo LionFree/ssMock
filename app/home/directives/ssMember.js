@@ -8,12 +8,12 @@
                 return {
                     restrict: 'E',
                     scope: {
-                        member: '=',
+                        member: '='
                     },
                     template: '',
                     link: function (scope, element, attrs) {
                         if (angular.isArray(scope.member.children)) {
-                            element.append("<ss-group collection='member.children'></ss-group>");
+                            element.append("<ss-status-group collection='member.children'></ss-status-group>");
                             $compile(element.contents())(scope)
                         }
                     },
