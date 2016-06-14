@@ -10,7 +10,7 @@
                     scope: {
                         serviceGroup: '='
                     },
-                    templateUrl: 'directives/ssServiceStatusView.html'
+                    templateUrl: 'directives/ssServiceTable.html'
                 }
             }
         ]);
