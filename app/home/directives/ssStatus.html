@@ -1,0 +1,12 @@
+<uib-accordion-heading ng-click="isOpen = !isOpen">
+    <div>
+        <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}" style="margin-right:15px"></i>
+        {{item.title}}
+        <div class="pull-right status-column">
+            <span ng-class="item.cssClass">{{item.symbol}}</span>
+            {{item.status}}
+        </div>
+    </div>
+</uib-accordion-heading>
+<div ng-transclude></div>
+

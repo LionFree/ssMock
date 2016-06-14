@@ -12,15 +12,15 @@
               servers.forEach(function(server) {
 
                   statusAnnotationService.annotate(server);
-                  server.serviceGroups.forEach(function(group) {
-                      statusAnnotationService.annotate(group);
-                      group.services.forEach(function(service) {
+                  server.group.forEach(function(serviceGroup) {
+                      statusAnnotationService.annotate(serviceGroup);
+                      serviceGroup.services.forEach(function(service) {
                           statusAnnotationService.annotate(service);
                       });
                   });
               });
 
-            vm.serverGroups = servers;
+            vm.servers = servers;
             return vm;
         }
 })();

@@ -1,0 +1,17 @@
+<uib-accordion close-others="oneAtATime">
+    <uib-accordion-group ng-repeat="member in collection" member="member" is-open="isOpen">
+        <uib-accordion-heading ng-click="isOpen = !isOpen">
+            <div>
+                <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}" style="margin-right:15px"></i>
+                {{member.title}}
+                <div class="pull-right status-column">
+                    <span ng-class="member.cssClass">{{member.symbol}}</span>
+                    {{member.status}}
+                </div>
+            </div>
+        </uib-accordion-heading>
+
+        <div ng-transclude></div>
+
+    </uib-accordion-group>
+</uib-accordion>

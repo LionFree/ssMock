@@ -1,0 +1,9 @@
+<table>
+    <tr ng-repeat="service in serviceGroup.services">
+        <td class="service-name-column">{{ service.title }}</td>
+        <td class="status-indicator">
+            <span ng-class="service.cssClass">{{service.symbol}}</span>
+        </td>
+        <td class="status-column">{{ service.status }}</td>
+    </tr>
+</table>

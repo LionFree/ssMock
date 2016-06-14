@@ -9,6 +9,11 @@
 
       <!-- ssMock -->
       <script src="../app.js"></script>
+
+      <script src="directives/ssStatusGroup.js"></script>
+      <script src="directives/ssMember.js"></script>
+      <script src="directives/ssStatus.js"></script>
+      <script src="directives/ssServiceStatusView.js"></script>
       <script src="statusAnnotationService.js"></script>
       <script src="homeService.js"></script>
       <script src="homeController.js"></script>
@@ -36,49 +41,24 @@
         </div>
       </script>
 
-      <uib-accordion close-others="oneAtATime">
+            <uib-accordion close-others="oneAtATime">
+                <uib-accordion-group ng-repeat="server in viewModel.servers" is-open="isServerOpen">
+                    <ss-status item="server" collection="viewModel.servers" is-open="isServerOpen">
 
-        <!-- Servers -->
-        <uib-accordion-group ng-repeat="server in viewModel.serverGroups" is-open="isopen">
-            <uib-accordion-heading ng-click="isopen = !isopen">
-              <div>
-                  <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}" style="margin-right:15px"></i>
-                  {{server.title}}
-                  <div class="pull-right status-column">
-                      <span ng-class="server.cssClass">{{server.symbol}}</span>
-                      {{server.status}}
-                  </div>          
-              </div>
-            </uib-accordion-heading>
+                      <uib-accordion close-others="oneAtATime">
+                        <uib-accordion-group ng-repeat="group in server.group" is-open="isGroupOpen">
+                            <ss-status item="group" grouping="server.serviceGroups" is-open="isGroupOpen">
 
-          <!-- Service Groups -->
-          <uib-accordion close-others="oneAtATime">
-            <uib-accordion-group ng-repeat="group in server.serviceGroups" is-open="isServerOpen">
-              <uib-accordion-heading ng-click="isServerOpen = !isServerOpen">
-                <div>
-                    <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isServerOpen, 'glyphicon-chevron-right': !isServerOpen}" style="margin-right:15px"></i>
-                    {{group.title}}
-                    <div class="pull-right status-column" style="margin-right:20px">
-                      <span ng-class="group.cssClass">{{group.symbol}}</span>
-                        {{group.status}}
-                    </div>
-                </div>
-              </uib-accordion-heading>
-                
-              <!-- Services -->
-              <table>
-                <tr ng-repeat="service in group.services">
-                  <td class="service-name-column">{{ service.title }}</td>
-                  <td class="status-indicator">
-                      <span ng-class="service.cssClass">{{service.symbol}}</span>
-                  </td>
-                  <td class="status-column">{{ service.status }}</td>
-                </tr>
-              </table>
+                                <ss-service-table service-group="group"></ss-service-table>
+
+                            </ss-status>
+                        </uib-accordion-group>
+                      </uib-accordion>
+
+                </ss-status>
             </uib-accordion-group>
-          </uib-accordion>
-        </uib-accordion-group>
-      </uib-accordion>
+        </uib-accordion>
+
     </div>
   </body>
 </html>
