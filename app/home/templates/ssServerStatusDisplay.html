@@ -1,0 +1,17 @@
+<uib-accordion close-others="oneAtATime" ng-cloak>
+    <uib-accordion-group ng-repeat="server in collection" is-open="isServerOpen">
+        <ss-status-header item="server"  is-open="isServerOpen">
+
+            <uib-accordion close-others="oneAtATime">
+                <uib-accordion-group ng-repeat="group in server.elements" is-open="isGroupOpen">
+                    <ss-status-header item="group"  is-open="isGroupOpen">
+
+                        <ss-service-table service-group="group"></ss-service-table>
+
+                    </ss-status-header>
+                </uib-accordion-group>
+            </uib-accordion>
+
+        </ss-status-header>
+    </uib-accordion-group>
+</uib-accordion>

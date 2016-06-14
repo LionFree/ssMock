@@ -12,7 +12,7 @@
               servers.forEach(function(server) {
 
                   statusAnnotationService.annotate(server);
-                  server.group.forEach(function(serviceGroup) {
+                  server.elements.forEach(function(serviceGroup) {
                       statusAnnotationService.annotate(serviceGroup);
                       serviceGroup.services.forEach(function(service) {
                           statusAnnotationService.annotate(service);

@@ -2,9 +2,9 @@
   {
     "status": "Partial",
     "title": "COEURL",
-    "serviceGroups": [
+    "elements": [
       {
-        "services": [
+        "elements": [
           {
             "status": "Running",
             "title": "Pipeline Pilot"
@@ -14,7 +14,7 @@
         "title": "Pipeline Pilot"
       },
       {
-        "services": [
+        "elements": [
           {
             "status": "Not Installed",
             "title": "Foundation Hub"
@@ -24,7 +24,7 @@
         "title": "Foundation Hub"
       },
       {
-        "services": [
+        "elements": [
           {
             "status": "Running",
             "title": "Vault Message Processor"
@@ -46,7 +46,7 @@
         "title": "Workbook"
       },
       {
-        "services": [
+        "elements": [
           {
             "status": "Running",
             "title": "Compose"
@@ -60,9 +60,9 @@
   {
     "status": "Running",
     "title": "HEART",
-    "serviceGroups": [
+    "elements": [
       {
-        "services": [
+        "elements": [
           {
             "status": "Running",
             "title": "Pipeline Pilot"
@@ -72,7 +72,7 @@
         "title": "Pipeline Pilot"
       },
       {
-        "services": [
+        "elements": [
           {
             "status": "Running",
             "title": "Foundation Hub"
@@ -82,7 +82,7 @@
         "title": "Foundation Hub"
       },
       {
-        "services": [
+        "elements": [
           {
             "status": "Running",
             "title": "Vault Message Processor"
@@ -104,7 +104,7 @@
         "title": "Workbook"
       },
       {
-        "services": [
+        "elements": [
           {
             "status": "Running",
             "title": "Compose"

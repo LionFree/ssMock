@@ -10,9 +10,7 @@
       <!-- ssMock -->
       <script src="../app.js"></script>
 
-      <script src="directives/ssStatusGroup.js"></script>
-      <script src="directives/ssStatus.js"></script>
-      <script src="directives/ssServiceTable.js"></script>
+      <script src="directives/ssServerStatusDisplay.js"></script>
       <script src="statusAnnotationService.js"></script>
       <script src="homeService.js"></script>
       <script src="homeController.js"></script>
@@ -39,34 +37,7 @@
           </div>
         </div>
       </script>
-
-        <!--<ss-status-group collection="viewModel.servers" is-open="isServerOpen">-->
-            <!--<ss-status-group collection="item.group" is-open="isServerOpen">-->
-                <!--o:{{$id}}-->
-                <!--<ss-service-table service-group="group"></ss-service-table>-->
-            <!--</ss-status-group>-->
-        <!--</ss-status-group>-->
-
-
-
-            <uib-accordion close-others="oneAtATime">
-                <uib-accordion-group ng-repeat="server in viewModel.servers" is-open="isServerOpen">
-                    <ss-status item="server" collection="viewModel.servers" is-open="isServerOpen">
-
-                      <uib-accordion close-others="oneAtATime">
-                        <uib-accordion-group ng-repeat="group in server.group" is-open="isGroupOpen">
-                            <ss-status item="group" grouping="server.serviceGroups" is-open="isGroupOpen">
-
-                                <ss-service-table service-group="group"></ss-service-table>
-
-                            </ss-status>
-                        </uib-accordion-group>
-                      </uib-accordion>
-
-                    </ss-status>
-                </uib-accordion-group>
-            </uib-accordion>
-
+        <ss-server-status-display collection="viewModel.servers"></ss-server-status-display>
     </div>
   </body>
 </html>

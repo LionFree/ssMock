@@ -16,7 +16,7 @@
                         {
                             status: 'Partial',
                             title: 'COEURL',
-                            group: [
+                            elements: [
                                 {
                                     services: [
                                         {
@@ -74,7 +74,7 @@
                         {
                             status: 'Running',
                             title: 'HEART',
-                            group: [
+                            elements: [
                                 {
                                     services: [
                                         {
