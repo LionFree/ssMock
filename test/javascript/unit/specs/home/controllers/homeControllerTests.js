@@ -11,8 +11,8 @@ describe("Home Controller", function() {
 
     }));
 
-    it('should set the serverGroups', function () {
+    it('should set the servers', function () {
         var sut = createController();
-        expect(sut.serverGroups).toBeDefined();
+        expect(sut.servers).toBeDefined();
     });
 });
